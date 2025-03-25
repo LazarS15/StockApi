@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: StockAPI
+  datasource:
+    url: jdbc:h2:mem:stockdb
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
