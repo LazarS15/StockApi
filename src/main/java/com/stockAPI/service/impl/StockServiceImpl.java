@@ -1,10 +1,10 @@
 package com.stockAPI.service.impl;
 
-import com.stockAPI.dto.StockDto;
+import com.stockAPI.dto.request.StockDto;
 import com.stockAPI.entity.Company;
 import com.stockAPI.entity.Stock;
-import com.stockAPI.exception.CompanyNotFoundException;
-import com.stockAPI.exception.StockNotFoundException;
+import com.stockAPI.exception.model.CompanyNotFoundException;
+import com.stockAPI.exception.model.StockNotFoundException;
 import com.stockAPI.repository.CompanyRepository;
 import com.stockAPI.repository.StockRepository;
 import com.stockAPI.service.StockService;

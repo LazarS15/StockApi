@@ -1,7 +1,5 @@
 package com.stockAPI.config;
 
-import com.stockAPI.dto.StockDto;
-import com.stockAPI.entity.Stock;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.context.annotation.Bean;
@@ -15,14 +13,7 @@ public class BeansConfiguration {
 
         modelMapper.getConfiguration()
                 .setSkipNullEnabled(true)
-                .setMatchingStrategy(MatchingStrategies.STRICT)
-                .setAmbiguityIgnored(true);
-
-        modelMapper.typeMap(StockDto.class, Stock.class)
-                .addMappings(mapper -> {
-                    mapper.skip(Stock::setId);
-                    mapper.skip(Stock::setCompany);
-                });
+                .setMatchingStrategy(MatchingStrategies.STRICT);
 
         return modelMapper;
     }

@@ -49,7 +49,7 @@ public class StockDataLoader {
 
             String line;
             while ((line = br.readLine()) != null) {
-                String[] values = line.split("\\s*,\\s*");
+                String[] values = line.split(",");
 
                 if (values.length >= 7) {
                     Stock stock = Stock.builder()
@@ -64,7 +64,6 @@ public class StockDataLoader {
                             .build();
 
                     stockRepository.save(stock);
-                    log.info("Stock saved: {}", stock);
                 }
             }
         } catch (Exception e) {

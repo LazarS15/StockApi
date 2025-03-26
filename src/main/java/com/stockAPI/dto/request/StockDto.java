@@ -1,13 +1,11 @@
-package com.stockAPI.dto;
+package com.stockAPI.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
 
 @Data
-@Builder
 public class StockDto {
     private String companySymbol;
 

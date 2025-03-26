@@ -1,8 +1,8 @@
 package com.stockAPI.service.impl;
 
-import com.stockAPI.dto.CompanyDto;
+import com.stockAPI.dto.request.CompanyDto;
 import com.stockAPI.entity.Company;
-import com.stockAPI.exception.CompanyNotFoundException;
+import com.stockAPI.exception.model.CompanyNotFoundException;
 import com.stockAPI.repository.CompanyRepository;
 import com.stockAPI.service.CompanyService;
 import lombok.RequiredArgsConstructor;

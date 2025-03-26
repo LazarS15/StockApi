@@ -1,7 +1,7 @@
 package com.stockAPI.controller;
 
 
-import com.stockAPI.dto.CompanyDto;
+import com.stockAPI.dto.request.CompanyDto;
 import com.stockAPI.entity.Company;
 import com.stockAPI.service.CompanyService;
 import lombok.RequiredArgsConstructor;

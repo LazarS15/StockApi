@@ -1,14 +1,11 @@
-package com.stockAPI.dto;
+package com.stockAPI.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.validation.constraints.Size;
-import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
 
 @Data
-@Builder
 public class CompanyDto {
 
     private String name;

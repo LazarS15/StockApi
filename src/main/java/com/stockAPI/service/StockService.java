@@ -1,6 +1,6 @@
 package com.stockAPI.service;
 
-import com.stockAPI.dto.StockDto;
+import com.stockAPI.dto.request.StockDto;
 import com.stockAPI.entity.Stock;
 import java.util.List;
 import java.util.UUID;

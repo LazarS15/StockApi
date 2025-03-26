@@ -1,6 +1,6 @@
 package com.stockAPI.service;
 
-import com.stockAPI.dto.CompanyDto;
+import com.stockAPI.dto.request.CompanyDto;
 import com.stockAPI.entity.Company;
 import jakarta.validation.Valid;
 
