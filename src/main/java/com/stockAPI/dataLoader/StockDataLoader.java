@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -47,6 +48,7 @@ public class StockDataLoader {
 
             br.readLine();
 
+            List<Stock> stocks = new ArrayList<>();
             String line;
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
@@ -62,10 +64,11 @@ public class StockDataLoader {
                             .adjClose(parseDouble(values[5]))
                             .volume(parseLong(values[6]))
                             .build();
-
-                    stockRepository.save(stock);
+                    stocks.add(stock);
                 }
             }
+            stockRepository.saveAll(stocks);
+
         } catch (Exception e) {
             log.error("Error loading stock data from " + filePath + ": " + e.getMessage());
         }

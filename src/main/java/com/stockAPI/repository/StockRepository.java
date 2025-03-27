@@ -12,4 +12,5 @@ import java.util.UUID;
 public interface StockRepository extends JpaRepository<Stock, UUID> {
     List<Stock> findByCompanySymbol(String symbol);
     List<Stock> findByCompanySymbolAndDateBetween(String symbol, LocalDate startDate, LocalDate endDate);
+    List<Stock> findByDateBetween(LocalDate startDate, LocalDate endDate);
 }

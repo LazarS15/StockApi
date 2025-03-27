@@ -60,8 +60,7 @@ public class StockServiceImpl implements StockService {
             stock.setCompany(company);
         }
 
-        modelMapper.typeMap(StockDto.class, Stock.class)
-                .addMappings(mapper -> mapper.skip(Stock::setCompany));
+        modelMapper.typeMap(StockDto.class, Stock.class);
         modelMapper.map(dto, stock);
         return stockRepository.save(stock);
     }
@@ -75,6 +74,10 @@ public class StockServiceImpl implements StockService {
     @Transactional(readOnly = true)
     @Override
     public List<Stock> getStocksByCompanySymbol(String symbol) {
-        return stockRepository.findByCompanySymbol(symbol);
+        List<Stock> stocks = stockRepository.findByCompanySymbol(symbol);
+        if (stocks.isEmpty()) {
+            throw new StockNotFoundException("Stocks with symbol: " + symbol + " doesn't exist");
+        }
+        return stocks;
     }
 }

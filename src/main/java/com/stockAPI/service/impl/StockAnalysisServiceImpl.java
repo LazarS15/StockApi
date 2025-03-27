@@ -50,13 +50,16 @@ public class StockAnalysisServiceImpl implements StockAnalysisService {
     private PeriodAnalysis analyzePeriod(String symbol, LocalDate startDate, LocalDate endDate) {
         List<Stock> stocks = stockRepository.findByCompanySymbolAndDateBetween(symbol, startDate, endDate);
 
-        if (stocks == null || stocks.isEmpty()) {
+        if (stocks == null || stocks.size() < 2) {
             return null;
         }
+        log.info("Total Stocks found for symbol {} in the period from {} to {}: {}",
+                symbol, startDate, endDate, stocks.size());
 
         return PeriodAnalysis.builder()
                 .singleTradeData(calculator.findBestSingleTrade(stocks))
                 .maxPossibleProfit(calculator.calculateTotalProfit(stocks))
+                .betterPerformingStocks(calculator.findBetterPerformingStocks(symbol, startDate, endDate))
                 .build();
     }
 
