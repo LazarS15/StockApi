@@ -8,6 +8,7 @@ import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,7 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 @Slf4j
+@Profile("!test")
 @DependsOn("companyDataLoader")
 public class StockDataLoader {
 
